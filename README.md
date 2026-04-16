@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Adiyogi Cabs Tour
 
-## Getting Started
+Next.js 16 marketing website for spiritual travel packages, destination pages, guides, gallery, and contact inquiries.
 
-First, run the development server:
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Standard folder structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```text
+src/
+  app/
+    (marketing)/        # Public website routes
+    api/                # API route entrypoints only
+    globals.css
+    layout.tsx
+    not-found.tsx
+  backend/
+    inquiries/          # Service, repository, validator
+  features/
+    site/
+      components/       # UI building blocks for the website
+      config/           # Brand, contact, constants, SEO config
+      content/          # Static content/data for pages
+      lib/              # Site helpers, SEO, WhatsApp
+  shared/
+    types/              # Shared types used by frontend + backend
+public/                 # Static assets
+storage/                # Local inquiry storage for development
+```
 
-## Learn More
+## Conventions
 
-To learn more about Next.js, take a look at the following resources:
+- Keep `src/app` focused on routing only.
+- Put reusable website code inside `src/features/site`.
+- Keep business logic inside `src/backend`.
+- Add new APIs in `src/app/api/.../route.ts` as thin handlers.
+- Add new marketing pages inside `src/app/(marketing)`.
+- Keep cross-layer types in `src/shared`.
+- Keep persistent local development data inside `storage/`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Verification
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run lint
+npm run build
+```
