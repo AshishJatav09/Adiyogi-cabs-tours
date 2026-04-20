@@ -15,7 +15,7 @@ import { getCurrentLocale } from "@/shared/i18n/server";
 export const metadata: Metadata = createMetadata({
   title: "Contact",
   description:
-    "Contact Adiyogi Cabs & Tour for Ujjain darshan packages, route support, pickup and drop assistance, and WhatsApp-first spiritual travel planning.",
+    "Contact Adiyogi Tours for Ujjain darshan packages, route support, pickup and drop assistance, and WhatsApp-first spiritual travel planning.",
   path: "/contact",
 });
 

@@ -43,7 +43,7 @@ export function Navigation({ locale }: NavigationProps) {
           </div>
           <div className="min-w-0">
             <p className="truncate whitespace-nowrap font-[family-name:var(--font-display)] text-lg text-[var(--color-ink)] lg:text-xl">
-              Adiyogi Cabs & Tour
+              Adiyogi Tours
             </p>
             <p className="hidden text-[10px] uppercase tracking-[0.24em] text-[var(--color-muted)] sm:block">
               {localize(locale, "Spiritual Travel, Refined", "Adhyatmik Yatra, Salike Se")}

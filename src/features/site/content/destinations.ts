@@ -317,7 +317,7 @@ export const destinations: Destination[] = [
     whatToExpect:
       "Visitors can expect wide views, dramatic built heritage, and a relaxed sightseeing mood that contrasts nicely with temple-heavy segments.",
     whyInPackageEcosystem:
-      "Including Mandu helps distinguish Adiyogi Cabs & Tour from ordinary darshan-only operators by offering premium heritage extensions.",
+      "Including Mandu helps distinguish Adiyogi Tours from ordinary darshan-only operators by offering premium heritage extensions.",
     travelUsefulness:
       "Mandu fits best into extended tours, family trips, and custom heritage-spiritual packages.",
     highlights: ["Jahaz Mahal", "Rani Roopmati Pavilion", "Scenic fort views", "Regional heritage depth"],

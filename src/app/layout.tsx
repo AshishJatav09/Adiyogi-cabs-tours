@@ -8,6 +8,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(brandConfig.siteUrl),
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
   title: {
     default: brandConfig.name,
     template: `%s | ${brandConfig.name}`,
