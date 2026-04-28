@@ -14,17 +14,29 @@ export const metadata: Metadata = {
     apple: "/icon.svg",
   },
   title: {
-    default: brandConfig.name,
-    template: `%s | ${brandConfig.name}`,
+    default: "Adiyogi Cabs and Tours",
+    template: `%s | Adiyogi Cabs and Tours`,
   },
-  description: brandConfig.description,
+  description:
+    "Best taxi service and tours. Book reliable cabs and tour packages with Adiyogi Cabs and Tours.",
   keywords: coreKeywords,
+  alternates: {
+    canonical: brandConfig.siteUrl,
+  },
   openGraph: {
-    title: brandConfig.name,
-    description: brandConfig.description,
-    siteName: brandConfig.name,
+    title: "Adiyogi Cabs and Tours",
+    description:
+      "Best taxi service and tours. Book reliable cabs and tour packages with Adiyogi Cabs and Tours.",
+    url: brandConfig.siteUrl,
+    siteName: "Adiyogi Cabs and Tours",
     locale: brandConfig.locale,
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Adiyogi Cabs and Tours",
+    description:
+      "Best taxi service and tours. Book reliable cabs and tour packages with Adiyogi Cabs and Tours.",
   },
 };
 

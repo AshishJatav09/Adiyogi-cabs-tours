@@ -1,12 +1,12 @@
 export const brandConfig = {
-  name: "Adiyogi Tours",
-  shortName: "Adiyogi Tours",
+  name: "Adiyogi Cabs & Tours",
+  shortName: "Adiyogi Cabs & Tours",
   tagline: "Premium spiritual travel for darshan, comfort, and trust",
   description:
-    "Adiyogi Tours is a premium spiritual travel brand focused on Ujjain, Omkareshwar, Nalkheda, Maheshwar, Mandu, and Indore with WhatsApp-first inquiry and booking.",
-  siteUrl: "https://adiyogicabs.example.com",
+    "Adiyogi Cabs & Tours is a premium spiritual travel brand focused on Ujjain, Omkareshwar, Nalkheda, Maheshwar, Mandu, and Indore with WhatsApp-first inquiry and booking.",
+  siteUrl: "https://adiyogicabsandtours.com",
   locale: "en_IN",
-  defaultOgImage: "/og-adiyogi.jpg",
+  defaultOgImage: "/images/nemnidhi-logo-final.png",
 };
 
 export const companyValues = [

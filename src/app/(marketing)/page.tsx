@@ -5,9 +5,9 @@ import { createMetadata } from "@/features/site/lib/seo";
 import { getCurrentLocale } from "@/shared/i18n/server";
 
 export const metadata: Metadata = createMetadata({
-  title: "Premium Spiritual Travel and Darshan Packages",
+  title: "Adiyogi Cabs and Tours",
   description:
-    "Explore Ujjain darshan packages, Mahakal darshan cab service, Omkareshwar tour packages, and premium WhatsApp-first pilgrimage travel across Madhya Pradesh.",
+    "Best taxi service and tours. Book reliable cabs and tour packages with Adiyogi Cabs and Tours.",
   path: "/",
 });
 
