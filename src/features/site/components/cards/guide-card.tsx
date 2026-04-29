@@ -24,6 +24,7 @@ export function GuideCard({ article }: GuideCardProps) {
       <p className="mt-3 line-clamp-1 text-[11px] text-[var(--color-accent)] sm:mt-4 sm:text-xs">Keyword: {article.seoKeyword}</p>
       <Link
         href={`/guides/${article.slug}`}
+        prefetch={false}
         className="mt-auto inline-flex items-center gap-2 pt-5 text-xs font-semibold text-[var(--color-accent)] sm:pt-6 sm:text-sm"
       >
         View guide

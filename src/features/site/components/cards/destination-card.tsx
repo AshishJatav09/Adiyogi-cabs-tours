@@ -12,6 +12,7 @@ export function DestinationCard({ destination }: DestinationCardProps) {
   return (
     <Link
       href={`/destinations/${destination.slug}`}
+      prefetch={false}
       className="group relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-[var(--color-line)] bg-[linear-gradient(170deg,rgba(255,251,244,0.98),rgba(244,234,220,0.96))] shadow-[var(--shadow-card)] transition duration-300 hover:-translate-y-1.5 hover:border-[rgba(181,106,47,0.36)] sm:rounded-[2rem]"
     >
       <div className="relative h-44 overflow-hidden sm:h-56">
@@ -20,6 +21,7 @@ export function DestinationCard({ destination }: DestinationCardProps) {
             src={destination.image}
             alt={destination.name}
             fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-cover transition duration-500 group-hover:scale-105"
           />
         ) : null}

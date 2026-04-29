@@ -55,6 +55,7 @@ export function HeroSlider({ accent, title, description, locale }: HeroSliderPro
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
+      if (document.visibilityState !== "visible") return;
       setActiveSlideIndex((index) => (index + 1) % slides.length);
     }, AUTO_ROTATE_MS);
 

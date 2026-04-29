@@ -94,7 +94,13 @@ export default async function GalleryPage() {
                 className="overflow-hidden rounded-[2rem] border border-[var(--color-line)] bg-white shadow-[0_18px_48px_rgba(32,22,14,0.12)]"
               >
                 <div className="relative h-64">
-                  <Image src={item.image} alt={item.name} fill className="object-cover" />
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    className="object-cover"
+                  />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,11,9,0.02),rgba(13,11,9,0.18))]" />
                 </div>
                 <div className="p-6">

@@ -59,6 +59,7 @@ export function PackageCard({ pkg }: PackageCardProps) {
       <div className="mt-auto flex flex-wrap items-center gap-3 border-t border-[rgba(124,88,54,0.14)] pt-4 sm:gap-4 sm:pt-5">
         <Link
           href={`/packages/${pkg.slug}`}
+          prefetch={false}
           className="inline-flex items-center gap-2 text-xs font-semibold text-[var(--color-accent)] sm:text-sm"
         >
           View details

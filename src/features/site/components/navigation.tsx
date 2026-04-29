@@ -1,9 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { Menu, Phone, X } from "lucide-react";
-import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { Menu, Phone } from "lucide-react";
 
 import { contactConfig } from "@/features/site/config/contact";
 import { getGeneralBookingLink } from "@/features/site/lib/whatsapp";
@@ -26,23 +22,11 @@ type NavigationProps = {
 };
 
 export function Navigation({ locale }: NavigationProps) {
-  const pathname = usePathname();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  function isActive(href: string) {
-    if (href === "/") return pathname === "/";
-    return pathname === href || pathname.startsWith(`${href}/`);
-  }
-
   return (
     <header className="sticky top-0 z-50 border-b border-[rgba(124,88,54,0.16)] bg-[rgba(255,249,239,0.88)] backdrop-blur-xl">
       <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-10">
         <div className="flex items-center gap-3">
-          <Link
-            href="/"
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex min-w-0 items-center gap-3"
-          >
+          <Link href="/" className="flex min-w-0 items-center gap-3">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-[rgba(216,165,92,0.36)] bg-[linear-gradient(145deg,rgba(255,249,239,0.96),rgba(241,224,198,0.94))] text-sm font-semibold tracking-[0.16em] text-[var(--color-accent)] shadow-[0_14px_30px_rgba(75,47,26,0.14)]">
               AT
             </div>
@@ -62,12 +46,8 @@ export function Navigation({ locale }: NavigationProps) {
                 <Link
                   key={item.label}
                   href={item.href}
-                  prefetch
-                  className={`rounded-full px-3 py-2 text-sm font-medium transition ${
-                    isActive(item.href)
-                      ? "bg-[var(--color-accent)] text-white shadow-[0_12px_24px_rgba(181,106,47,0.3)]"
-                      : "text-[var(--color-muted)] hover:bg-[var(--color-surface)] hover:text-[var(--color-ink)]"
-                  }`}
+                  prefetch={false}
+                  className="rounded-full px-3 py-2 text-sm font-medium text-[var(--color-muted)] transition hover:bg-[var(--color-surface)] hover:text-[var(--color-ink)]"
                 >
                   {item.label}
                 </Link>
@@ -101,56 +81,47 @@ export function Navigation({ locale }: NavigationProps) {
               <Phone className="mr-2 h-4 w-4" />
               {localize(locale, "Call", "Call")}
             </a>
-            <button
-              type="button"
-              aria-expanded={mobileMenuOpen}
-              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-              onClick={() => setMobileMenuOpen((prev) => !prev)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[rgba(124,88,54,0.18)] bg-white text-[var(--color-ink)] shadow-[0_10px_24px_rgba(75,47,26,0.08)] transition hover:border-[var(--color-gold-soft)]"
-            >
-              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
+            <details className="relative">
+              <summary
+                aria-label="Open menu"
+                className="inline-flex h-11 w-11 list-none items-center justify-center rounded-full border border-[rgba(124,88,54,0.18)] bg-white text-[var(--color-ink)] shadow-[0_10px_24px_rgba(75,47,26,0.08)] transition hover:border-[var(--color-gold-soft)] [&::-webkit-details-marker]:hidden"
+              >
+                <Menu className="h-5 w-5" />
+              </summary>
+              <div className="absolute right-0 top-[calc(100%+0.65rem)] z-50 w-[min(20rem,calc(100vw-2rem))] rounded-[1.3rem] border border-[rgba(124,88,54,0.14)] bg-[rgba(255,249,239,0.98)] p-3 shadow-[0_24px_48px_rgba(65,39,22,0.08)]">
+                <nav className="grid gap-2">
+                  {navItems(locale).map((item) => (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      prefetch={false}
+                      className="rounded-[1.2rem] border border-[var(--color-line)] bg-white px-4 py-3 text-sm font-medium text-[var(--color-ink)] transition hover:bg-[rgba(181,106,47,0.08)]"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </nav>
+                <div className="mt-3 grid gap-3 border-t border-[rgba(124,88,54,0.14)] pt-3 sm:hidden">
+                  <a
+                    href={contactConfig.phoneHref}
+                    className="inline-flex items-center justify-center rounded-full border border-[var(--color-line)] bg-white px-4 py-3 text-sm font-medium text-[var(--color-ink)]"
+                  >
+                    {localize(locale, "Call Now", "Call Now")}
+                  </a>
+                  <a
+                    href={getGeneralBookingLink()}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center rounded-full bg-[var(--color-accent)] px-5 py-3 text-sm font-semibold text-white"
+                  >
+                    {localize(locale, "Book on WhatsApp", "Book on WhatsApp")}
+                  </a>
+                </div>
+              </div>
+            </details>
           </div>
         </div>
       </div>
-
-      {mobileMenuOpen ? (
-        <div className="border-t border-[rgba(124,88,54,0.14)] bg-[rgba(255,249,239,0.98)] px-4 py-4 shadow-[0_24px_48px_rgba(65,39,22,0.08)] sm:px-5 lg:hidden">
-          <nav className="grid gap-2">
-            {navItems(locale).map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                prefetch
-                onClick={() => setMobileMenuOpen(false)}
-                className={`rounded-[1.2rem] px-4 py-3 text-sm font-medium transition ${
-                  isActive(item.href)
-                    ? "bg-[rgba(181,106,47,0.12)] text-[var(--color-accent-strong)]"
-                    : "border border-[var(--color-line)] bg-white text-[var(--color-ink)]"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-          <div className="mt-4 grid gap-3 sm:hidden">
-            <a
-              href={contactConfig.phoneHref}
-              className="inline-flex items-center justify-center rounded-full border border-[var(--color-line)] bg-white px-4 py-3 text-sm font-medium text-[var(--color-ink)]"
-            >
-              {localize(locale, "Call Now", "Call Now")}
-            </a>
-            <a
-              href={getGeneralBookingLink()}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center rounded-full bg-[var(--color-accent)] px-5 py-3 text-sm font-semibold text-white"
-            >
-              {localize(locale, "Book on WhatsApp", "Book on WhatsApp")}
-            </a>
-          </div>
-        </div>
-      ) : null}
     </header>
   );
 }

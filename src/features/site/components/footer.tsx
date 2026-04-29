@@ -62,7 +62,7 @@ export function Footer({ locale }: FooterProps) {
                 <Link
                   key={link.href}
                   href={link.href}
-                  prefetch
+                  prefetch={false}
                   className="rounded-lg px-2 py-1 transition hover:bg-[rgba(181,106,47,0.08)] hover:text-[var(--color-ink)]"
                 >
                   {localize(locale, link.label, link.label)}

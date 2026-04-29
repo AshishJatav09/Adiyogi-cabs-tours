@@ -189,6 +189,7 @@ export function DetailPage(props: DetailPageProps) {
                       src={item.image!}
                       alt={item.name}
                       fill
+                      sizes={isPackage ? "(max-width: 1024px) 100vw, 33vw" : "(max-width: 1024px) 100vw, 48vw"}
                       className="object-cover"
                     />
                     <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(21,15,12,0.08),rgba(21,15,12,0.62))]" />
