@@ -1,11 +1,14 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, type FormEvent, type ReactNode } from "react";
 import { CheckCircle2, LoaderCircle, Send } from "lucide-react";
 
 import { destinations, packages } from "@/features/site/content";
 import { initialInquiryFormValues, validateInquiryForm } from "@/features/site/lib/inquiry-form";
 import type { InquiryFormErrors, InquiryFormValues } from "@/shared/types/site";
+
+const fieldClass =
+  "rounded-xl border border-[var(--color-line)] bg-[rgba(255,255,255,0.88)] px-4 py-3 text-sm outline-none transition focus:border-[var(--color-gold-soft)] focus:bg-white";
 
 export function ContactForm() {
   const [form, setForm] = useState<InquiryFormValues>(initialInquiryFormValues);
@@ -33,7 +36,7 @@ export function ContactForm() {
     }
   }
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     if (!validate()) return;
@@ -60,9 +63,7 @@ export function ContactForm() {
       if (!response.ok || !result.ok) {
         setErrors(result.errors ?? {});
         setStatus("error");
-        setStatusMessage(
-          result.message ?? "We could not save your inquiry right now. Please try again.",
-        );
+        setStatusMessage(result.message ?? "We could not save your inquiry right now. Please try again.");
         return;
       }
 
@@ -82,7 +83,7 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-[2rem] border border-[var(--color-line)] bg-white p-7 shadow-[0_18px_55px_rgba(45,31,18,0.08)]"
+      className="rounded-[2rem] border border-[var(--color-line)] bg-[linear-gradient(170deg,rgba(255,251,244,0.98),rgba(226,242,249,0.94))] p-5 shadow-[var(--shadow-card)] sm:p-7"
     >
       <div className="grid gap-5 sm:grid-cols-2">
         <Field
@@ -91,7 +92,7 @@ export function ContactForm() {
             <select
               value={form.inquiryType}
               onChange={(event) => updateField("inquiryType", event.target.value)}
-              className="rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-3 outline-none transition focus:border-[var(--color-gold-soft)]"
+              className={fieldClass}
             >
               <option>Tour Package</option>
               <option>Puja Service</option>
@@ -112,7 +113,7 @@ export function ContactForm() {
             <input
               value={form.fullName}
               onChange={(event) => updateField("fullName", event.target.value)}
-              className="rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-3 outline-none transition focus:border-[var(--color-gold-soft)]"
+              className={fieldClass}
               placeholder="Your name"
             />
           }
@@ -124,7 +125,7 @@ export function ContactForm() {
             <input
               value={form.phoneNumber}
               onChange={(event) => updateField("phoneNumber", event.target.value)}
-              className="rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-3 outline-none transition focus:border-[var(--color-gold-soft)]"
+              className={fieldClass}
               placeholder="+91..."
             />
           }
@@ -137,7 +138,7 @@ export function ContactForm() {
               type="date"
               value={form.travelDate}
               onChange={(event) => updateField("travelDate", event.target.value)}
-              className="rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-3 outline-none transition focus:border-[var(--color-gold-soft)]"
+              className={fieldClass}
             />
           }
         />
@@ -148,7 +149,7 @@ export function ContactForm() {
             <input
               value={form.pickupLocation}
               onChange={(event) => updateField("pickupLocation", event.target.value)}
-              className="rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-3 outline-none transition focus:border-[var(--color-gold-soft)]"
+              className={fieldClass}
               placeholder="Indore Airport, Hotel, Station..."
             />
           }
@@ -160,7 +161,7 @@ export function ContactForm() {
             <input
               value={form.travelers}
               onChange={(event) => updateField("travelers", event.target.value)}
-              className="rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-3 outline-none transition focus:border-[var(--color-gold-soft)]"
+              className={fieldClass}
               placeholder="2 adults, 1 senior"
             />
           }
@@ -172,7 +173,7 @@ export function ContactForm() {
             <select
               value={form.packageSelection}
               onChange={(event) => updateField("packageSelection", event.target.value)}
-              className="rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-3 outline-none transition focus:border-[var(--color-gold-soft)]"
+              className={fieldClass}
             >
               <option value="">Select a package or service</option>
               {packages.map((pkg) => (
@@ -196,7 +197,7 @@ export function ContactForm() {
             <select
               value={form.hotelRequired}
               onChange={(event) => updateField("hotelRequired", event.target.value)}
-              className="rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-3 outline-none transition focus:border-[var(--color-gold-soft)]"
+              className={fieldClass}
             >
               <option>Yes</option>
               <option>No</option>
@@ -210,7 +211,7 @@ export function ContactForm() {
             <select
               value={form.foodRequired}
               onChange={(event) => updateField("foodRequired", event.target.value)}
-              className="rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-3 outline-none transition focus:border-[var(--color-gold-soft)]"
+              className={fieldClass}
             >
               <option>Yes</option>
               <option>No</option>
@@ -229,7 +230,7 @@ export function ContactForm() {
             </span>
           ) : null}
         </div>
-        <div className="rounded-[1.6rem] border border-[var(--color-line)] bg-[var(--color-surface)] p-5">
+        <div className="rounded-[1.3rem] border border-[var(--color-line)] bg-[rgba(255,255,255,0.7)] p-4 sm:p-5">
           <div className="flex flex-wrap gap-3">
             {destinations.map((destination) => {
               const selected = form.preferredDestinations.includes(destination.name);
@@ -267,21 +268,21 @@ export function ContactForm() {
           <textarea
             value={form.message}
             onChange={(event) => updateField("message", event.target.value)}
-            className="min-h-32 rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-3 outline-none transition focus:border-[var(--color-gold-soft)]"
+            className={`min-h-32 ${fieldClass}`}
             placeholder="Tell us your route preferences, elder support needs, darshan priorities, or hotel expectations."
           />
         }
       />
 
       {status === "success" ? (
-        <div className="mt-6 flex items-center gap-3 rounded-[1.4rem] bg-[rgba(30,142,90,0.12)] px-4 py-4 text-sm text-[#166c44]">
+        <div className="mt-6 flex items-center gap-3 rounded-[1.1rem] border border-[rgba(27,140,87,0.28)] bg-[rgba(30,142,90,0.12)] px-4 py-4 text-sm text-[#166c44]">
           <CheckCircle2 className="h-5 w-5" />
           {statusMessage}
         </div>
       ) : null}
 
       {status === "error" ? (
-        <div className="mt-6 rounded-[1.4rem] bg-[rgba(168,65,48,0.12)] px-4 py-4 text-sm text-[#8f2f22]">
+        <div className="mt-6 rounded-[1.1rem] border border-[rgba(151,53,40,0.28)] bg-[rgba(168,65,48,0.12)] px-4 py-4 text-sm text-[#8f2f22]">
           {statusMessage}
         </div>
       ) : null}
@@ -289,13 +290,9 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="mt-6 inline-flex items-center gap-2 rounded-full bg-[var(--color-accent)] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[var(--color-accent-strong)] disabled:opacity-80"
+        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-accent)] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[var(--color-accent-strong)] disabled:opacity-80 sm:w-auto"
       >
-        {status === "loading" ? (
-          <LoaderCircle className="h-4 w-4 animate-spin" />
-        ) : (
-          <Send className="h-4 w-4" />
-        )}
+        {status === "loading" ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
         {status === "loading" ? "Saving your inquiry..." : "Send Inquiry on WhatsApp"}
       </button>
     </form>
@@ -304,7 +301,7 @@ export function ContactForm() {
 
 type FieldProps = {
   label: string;
-  input: React.ReactNode;
+  input: ReactNode;
   error?: string;
   className?: string;
 };

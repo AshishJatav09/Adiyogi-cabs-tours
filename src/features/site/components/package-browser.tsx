@@ -5,15 +5,7 @@ import { useMemo, useState } from "react";
 import { PackageCard } from "@/features/site/components/cards";
 import type { TravelPackage } from "@/shared/types/site";
 
-const filterOptions = [
-  "All",
-  "Pilgrimage",
-  "Heritage",
-  "1 Day",
-  "2 Day",
-  "3 Day",
-  "Custom",
-] as const;
+const filterOptions = ["All", "Pilgrimage", "Heritage", "1 Day", "2 Day", "3 Day", "Custom"] as const;
 
 type FilterValue = (typeof filterOptions)[number];
 
@@ -52,36 +44,36 @@ export function PackageBrowser({ packages }: PackageBrowserProps) {
 
   return (
     <div>
-      <div className="section-shell rounded-[2.2rem] p-5 sm:p-6">
+      <div className="section-shell rounded-[2.1rem] p-5 sm:p-6">
         <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-        <div className="flex flex-wrap gap-3">
-          {filterOptions.map((filter) => (
-            <button
-              key={filter}
-              type="button"
-              onClick={() => setActiveFilter(filter)}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
-                activeFilter === filter
-                  ? "bg-[var(--color-accent)] text-white"
-                  : "border border-[var(--color-line)] bg-[var(--color-surface)] text-[var(--color-muted)]"
-              }`}
+          <div className="flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:gap-3 sm:overflow-visible sm:pb-0">
+            {filterOptions.map((filter) => (
+              <button
+                key={filter}
+                type="button"
+                onClick={() => setActiveFilter(filter)}
+                className={`whitespace-nowrap rounded-full px-3 py-2 text-xs font-semibold transition sm:px-4 sm:text-sm ${
+                  activeFilter === filter
+                    ? "bg-[var(--color-accent)] text-white shadow-[0_10px_20px_rgba(181,106,47,0.28)]"
+                    : "border border-[var(--color-line)] bg-white text-[var(--color-muted)]"
+                }`}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
+          <label className="flex items-center gap-3 text-sm font-medium text-[var(--color-muted)]">
+            Sort
+            <select
+              value={sortOrder}
+              onChange={(event) => setSortOrder(event.target.value)}
+              className="rounded-full border border-[var(--color-line)] bg-white px-4 py-2 text-sm text-[var(--color-ink)] outline-none"
             >
-              {filter}
-            </button>
-          ))}
-        </div>
-        <label className="flex items-center gap-3 text-sm font-medium text-[var(--color-muted)]">
-          Sort
-          <select
-            value={sortOrder}
-            onChange={(event) => setSortOrder(event.target.value)}
-            className="rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-2 text-sm text-[var(--color-ink)] outline-none"
-          >
-            <option value="featured">Featured first</option>
-            <option value="title">Title</option>
-            <option value="duration">Duration</option>
-          </select>
-        </label>
+              <option value="featured">Featured first</option>
+              <option value="title">Title</option>
+              <option value="duration">Duration</option>
+            </select>
+          </label>
         </div>
         <div className="mt-5 grid gap-3 sm:grid-cols-3">
           {[
@@ -91,7 +83,7 @@ export function PackageBrowser({ packages }: PackageBrowserProps) {
           ].map(([title, text]) => (
             <div
               key={title}
-              className="rounded-[1.4rem] border border-[var(--color-line)] bg-white/85 px-4 py-4"
+              className="rounded-[1.2rem] border border-[var(--color-line)] bg-white/88 px-4 py-4"
             >
               <p className="text-sm font-semibold text-[var(--color-ink)]">{title}</p>
               <p className="mt-2 text-xs leading-6 text-[var(--color-muted)]">{text}</p>
@@ -100,16 +92,15 @@ export function PackageBrowser({ packages }: PackageBrowserProps) {
         </div>
       </div>
 
-      <div className="mt-4 rounded-[1.6rem] border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-3 text-sm text-[var(--color-muted)]">
-        {visiblePackages.length} package{visiblePackages.length === 1 ? "" : "s"} available
-        under the current filter.
+      <div className="mt-4 rounded-[1.2rem] border border-[var(--color-line)] bg-[rgba(255,255,255,0.74)] px-4 py-3 text-sm text-[var(--color-muted)]">
+        {visiblePackages.length} package{visiblePackages.length === 1 ? "" : "s"} available under the current filter.
       </div>
 
       <div className="mt-10 grid gap-6 lg:grid-cols-2">
         {visiblePackages.length > 0 ? (
           visiblePackages.map((pkg) => <PackageCard key={pkg.id} pkg={pkg} />)
         ) : (
-          <div className="rounded-[1.8rem] border border-[var(--color-line)] bg-white p-8 text-[var(--color-muted)] shadow-[var(--shadow-card)] lg:col-span-2">
+          <div className="rounded-[1.8rem] border border-[var(--color-line)] bg-white p-6 text-[var(--color-muted)] shadow-[var(--shadow-card)] sm:p-8 lg:col-span-2">
             No packages match this filter right now. Try another duration or category.
           </div>
         )}

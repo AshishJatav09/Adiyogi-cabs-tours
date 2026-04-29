@@ -57,12 +57,12 @@ export default async function PujaDetailPage({ params }: PujaDetailPageProps) {
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-ink)]">
       <Navigation locale={locale} />
       <main>
-        <section className="bg-[linear-gradient(180deg,rgba(255,248,240,0.96),rgba(241,226,205,0.74))]">
-          <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+        <section className="bg-[linear-gradient(180deg,rgba(239,249,253,0.96),rgba(209,233,244,0.74))]">
+          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10">
             <p className="text-sm uppercase tracking-[0.28em] text-[var(--color-accent)]">
               {service.accent}
             </p>
-            <h1 className="mt-5 max-w-4xl font-[family-name:var(--font-display)] text-5xl text-[var(--color-ink)] sm:text-6xl">
+            <h1 className="mt-5 max-w-4xl font-[family-name:var(--font-display)] text-4xl leading-tight text-[var(--color-ink)] sm:text-5xl lg:text-6xl">
               {service.title}
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--color-muted)]">
@@ -79,7 +79,7 @@ export default async function PujaDetailPage({ params }: PujaDetailPageProps) {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+        <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10">
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
             <article className="rounded-[2rem] border border-[var(--color-line)] bg-white p-8 shadow-[var(--shadow-card)]">
               <SectionHeading
@@ -132,3 +132,5 @@ export default async function PujaDetailPage({ params }: PujaDetailPageProps) {
     </div>
   );
 }
+
+

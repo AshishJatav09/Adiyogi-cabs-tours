@@ -20,8 +20,7 @@ type GalleryBrowserProps = {
 };
 
 export function GalleryBrowser({ items }: GalleryBrowserProps) {
-  const [activeFilter, setActiveFilter] =
-    useState<(typeof galleryFilters)[number]>("All");
+  const [activeFilter, setActiveFilter] = useState<(typeof galleryFilters)[number]>("All");
 
   const visibleItems = useMemo(() => {
     if (activeFilter === "All") return items;
@@ -30,15 +29,15 @@ export function GalleryBrowser({ items }: GalleryBrowserProps) {
 
   return (
     <div>
-      <div className="flex flex-wrap gap-3">
+      <div className="flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:gap-3 sm:overflow-visible sm:pb-0">
         {galleryFilters.map((filter) => (
           <button
             key={filter}
             type="button"
             onClick={() => setActiveFilter(filter)}
-            className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+            className={`whitespace-nowrap rounded-full px-3 py-2 text-xs font-semibold transition sm:px-4 sm:text-sm ${
               activeFilter === filter
-                ? "bg-[var(--color-accent)] text-white"
+                ? "bg-[var(--color-accent)] text-white shadow-[0_10px_20px_rgba(181,106,47,0.28)]"
                 : "border border-[var(--color-line)] bg-white text-[var(--color-muted)]"
             }`}
           >

@@ -14,7 +14,7 @@ export default async function NotFound() {
         <p className="text-sm uppercase tracking-[0.32em] text-[var(--color-accent)]">
           Page Not Found
         </p>
-        <h1 className="mt-6 font-[family-name:var(--font-display)] text-5xl text-[var(--color-ink)] sm:text-6xl">
+        <h1 className="mt-6 font-[family-name:var(--font-display)] text-4xl leading-tight text-[var(--color-ink)] sm:text-5xl lg:text-6xl">
           This route is not part of the current yatra map.
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[var(--color-muted)]">

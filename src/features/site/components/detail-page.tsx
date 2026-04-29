@@ -73,8 +73,8 @@ export function DetailPage(props: DetailPageProps) {
       <Navigation locale={locale} />
 
       <main>
-        <section className="bg-[linear-gradient(180deg,rgba(255,248,240,0.95),rgba(241,226,205,0.72))]">
-          <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+        <section className="bg-[linear-gradient(180deg,rgba(239,249,253,0.96),rgba(209,233,244,0.74))]">
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-10">
             {isPackage ? (
               <>
                 <Breadcrumbs
@@ -84,10 +84,10 @@ export function DetailPage(props: DetailPageProps) {
                     { label: props.item.title },
                   ]}
                 />
-                <p className="text-sm uppercase tracking-[0.28em] text-[var(--color-accent)]">
+                <p className="inline-flex rounded-full border border-[rgba(181,106,47,0.2)] bg-[rgba(181,106,47,0.08)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
                   {props.item.accent}
                 </p>
-                <h1 className="mt-7 max-w-4xl font-[family-name:var(--font-display)] text-5xl leading-tight text-[var(--color-ink)] sm:text-6xl">
+                <h1 className="mt-7 max-w-4xl text-4xl font-semibold leading-tight text-[var(--color-ink)] sm:text-5xl lg:text-6xl">
                   {props.item.title}
                 </h1>
                 <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--color-muted)]">
@@ -107,10 +107,10 @@ export function DetailPage(props: DetailPageProps) {
             ) : (
               <div className="grid items-start gap-8 lg:grid-cols-[0.95fr_0.85fr]">
                 <div>
-                  <p className="text-sm uppercase tracking-[0.28em] text-[var(--color-accent)]">
+                  <p className="inline-flex rounded-full border border-[rgba(181,106,47,0.2)] bg-[rgba(181,106,47,0.08)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
                     {props.item.accent}
                   </p>
-                  <h1 className="mt-5 max-w-3xl font-[family-name:var(--font-display)] text-5xl leading-tight text-[var(--color-ink)] sm:text-6xl">
+                  <h1 className="mt-5 max-w-3xl text-4xl font-semibold leading-tight text-[var(--color-ink)] sm:text-5xl lg:text-6xl">
                     {props.item.name}
                   </h1>
                   <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--color-muted)]">
@@ -154,10 +154,10 @@ export function DetailPage(props: DetailPageProps) {
                   return (
                     <div
                       key={item.label}
-                      className="rounded-[1.5rem] border border-[var(--color-line)] bg-white/82 px-5 py-4 shadow-[0_12px_30px_rgba(46,31,18,0.06)]"
+                      className="rounded-[1.5rem] border border-[var(--color-line)] bg-white/82 px-5 py-4 shadow-[0_12px_30px_rgba(65,39,22,0.06)]"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[rgba(161,79,44,0.08)] text-[var(--color-accent)]">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[rgba(181,106,47,0.08)] text-[var(--color-accent)]">
                           <Icon className="h-4 w-4" />
                         </div>
                         <div>
@@ -183,7 +183,7 @@ export function DetailPage(props: DetailPageProps) {
                 {heroImages.map((item) => (
                   <div
                     key={item.slug}
-                    className="relative min-h-56 overflow-hidden rounded-[1.8rem] border border-[var(--color-line)] shadow-[0_18px_44px_rgba(46,31,18,0.1)]"
+                    className="relative min-h-56 overflow-hidden rounded-[1.8rem] border border-[var(--color-line)] shadow-[0_18px_44px_rgba(65,39,22,0.1)]"
                   >
                     <Image
                       src={item.image!}
@@ -210,9 +210,9 @@ export function DetailPage(props: DetailPageProps) {
         </section>
 
         {isPackage ? (
-          <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+          <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10">
             <div className="grid items-start gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-              <div className="rounded-[2rem] border border-[var(--color-line)] bg-white p-8 shadow-[0_16px_48px_rgba(46,33,20,0.07)]">
+              <div className="rounded-[2rem] border border-[var(--color-line)] bg-white p-8 shadow-[0_16px_48px_rgba(65,39,22,0.07)]">
                 <SectionHeading
                   eyebrow="Itinerary"
                   title="Journey overview"
@@ -269,7 +269,7 @@ export function DetailPage(props: DetailPageProps) {
 
             <div className="mt-10 grid items-start gap-6 lg:grid-cols-[0.92fr_1.08fr]">
               <div className="grid gap-6">
-                <article className="rounded-[1.8rem] border border-[var(--color-line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(247,239,227,0.96))] p-6 shadow-[var(--shadow-card)]">
+                <article className="rounded-[1.8rem] border border-[var(--color-line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(231,245,251,0.96))] p-6 shadow-[var(--shadow-card)]">
                   <p className="text-sm uppercase tracking-[0.28em] text-[var(--color-accent)]">
                     Booking Summary
                   </p>
@@ -417,8 +417,8 @@ export function DetailPage(props: DetailPageProps) {
             </div>
           </section>
         ) : (
-          <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-            <article className="rounded-[2rem] border border-[var(--color-line)] bg-white p-8 shadow-[0_16px_48px_rgba(46,33,20,0.07)]">
+          <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10">
+            <article className="rounded-[2rem] border border-[var(--color-line)] bg-white p-8 shadow-[0_16px_48px_rgba(65,39,22,0.07)]">
               <SectionHeading
                 eyebrow="Destination Story"
                 title={`What makes ${props.item.name} worth slowing down for.`}
@@ -444,7 +444,7 @@ export function DetailPage(props: DetailPageProps) {
               ].map(([title, body]) => (
                 <article
                   key={title}
-                  className="rounded-[1.8rem] border border-[var(--color-line)] bg-white p-7 shadow-[0_16px_48px_rgba(46,33,20,0.07)]"
+                  className="rounded-[1.8rem] border border-[var(--color-line)] bg-white p-7 shadow-[0_16px_48px_rgba(65,39,22,0.07)]"
                 >
                   <p className="text-sm uppercase tracking-[0.28em] text-[var(--color-accent)]">
                     {title}
@@ -570,7 +570,7 @@ export function DetailPage(props: DetailPageProps) {
             </div>
 
             <div className="mt-10 grid items-start gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-              <article className="rounded-[1.8rem] border border-[var(--color-line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(247,239,227,0.96))] p-6 shadow-[var(--shadow-card)]">
+              <article className="rounded-[1.8rem] border border-[var(--color-line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(231,245,251,0.96))] p-6 shadow-[var(--shadow-card)]">
                 <p className="text-sm uppercase tracking-[0.28em] text-[var(--color-accent)]">
                   Destination Inquiry
                 </p>
@@ -617,4 +617,5 @@ export function DetailPage(props: DetailPageProps) {
     </div>
   );
 }
+
 

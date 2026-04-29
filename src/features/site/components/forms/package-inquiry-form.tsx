@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent, type ReactNode } from "react";
 import { CheckCircle2, LoaderCircle, Send } from "lucide-react";
 
 import { initialInquiryFormValues, validateInquiryForm } from "@/features/site/lib/inquiry-form";
@@ -9,6 +9,9 @@ import type { InquiryFormErrors, InquiryFormValues, TravelPackage } from "@/shar
 type PackageInquiryFormProps = {
   pkg: TravelPackage;
 };
+
+const fieldClass =
+  "rounded-xl border border-[var(--color-line)] bg-[rgba(255,255,255,0.88)] px-4 py-3 text-sm outline-none transition focus:border-[var(--color-gold-soft)] focus:bg-white";
 
 export function PackageInquiryForm({ pkg }: PackageInquiryFormProps) {
   const [form, setForm] = useState<InquiryFormValues>({
@@ -33,7 +36,7 @@ export function PackageInquiryForm({ pkg }: PackageInquiryFormProps) {
     }
   }
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const nextErrors = validateInquiryForm(form);
@@ -79,16 +82,17 @@ export function PackageInquiryForm({ pkg }: PackageInquiryFormProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-[1.8rem] border border-[var(--color-line)] bg-white p-6 shadow-[var(--shadow-card)]"
+      className="rounded-[1.8rem] border border-[var(--color-line)] bg-[linear-gradient(170deg,rgba(255,251,244,0.98),rgba(226,242,249,0.94))] p-6 shadow-[var(--shadow-card)]"
     >
-      <p className="text-sm uppercase tracking-[0.28em] text-[var(--color-accent)]">
+      <p className="inline-flex rounded-full border border-[rgba(181,106,47,0.18)] bg-[rgba(181,106,47,0.08)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
         Package Inquiry
       </p>
-      <h3 className="mt-3 font-[family-name:var(--font-display)] text-3xl text-[var(--color-ink)]">
+      <h3 className="mt-3 text-2xl font-semibold text-[var(--color-ink)] sm:text-3xl">
         Get this route planned for your dates.
       </h3>
       <p className="mt-3 text-sm leading-7 text-[var(--color-muted)]">
-        Share your travel date, group size, and pickup city. We will save the inquiry and open WhatsApp with your package request.
+        Share your travel date, group size, and pickup city. We will save the inquiry and open
+        WhatsApp with your package request.
       </p>
 
       <div className="mt-5 grid gap-4">
@@ -99,7 +103,7 @@ export function PackageInquiryForm({ pkg }: PackageInquiryFormProps) {
             <input
               value={form.fullName}
               onChange={(event) => updateField("fullName", event.target.value)}
-              className="rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-3 outline-none transition focus:border-[var(--color-gold-soft)]"
+              className={fieldClass}
               placeholder="Your name"
             />
           }
@@ -112,7 +116,7 @@ export function PackageInquiryForm({ pkg }: PackageInquiryFormProps) {
               <input
                 value={form.phoneNumber}
                 onChange={(event) => updateField("phoneNumber", event.target.value)}
-                className="rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-3 outline-none transition focus:border-[var(--color-gold-soft)]"
+                className={fieldClass}
                 placeholder="+91..."
               />
             }
@@ -125,7 +129,7 @@ export function PackageInquiryForm({ pkg }: PackageInquiryFormProps) {
                 type="date"
                 value={form.travelDate}
                 onChange={(event) => updateField("travelDate", event.target.value)}
-                className="rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-3 outline-none transition focus:border-[var(--color-gold-soft)]"
+                className={fieldClass}
               />
             }
           />
@@ -138,7 +142,7 @@ export function PackageInquiryForm({ pkg }: PackageInquiryFormProps) {
               <input
                 value={form.pickupLocation}
                 onChange={(event) => updateField("pickupLocation", event.target.value)}
-                className="rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-3 outline-none transition focus:border-[var(--color-gold-soft)]"
+                className={fieldClass}
                 placeholder="Indore Airport, hotel, station..."
               />
             }
@@ -150,7 +154,7 @@ export function PackageInquiryForm({ pkg }: PackageInquiryFormProps) {
               <input
                 value={form.travelers}
                 onChange={(event) => updateField("travelers", event.target.value)}
-                className="rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-3 outline-none transition focus:border-[var(--color-gold-soft)]"
+                className={fieldClass}
                 placeholder="2 adults, 1 senior"
               />
             }
@@ -162,21 +166,21 @@ export function PackageInquiryForm({ pkg }: PackageInquiryFormProps) {
             <textarea
               value={form.message}
               onChange={(event) => updateField("message", event.target.value)}
-              className="min-h-28 rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-3 outline-none transition focus:border-[var(--color-gold-soft)]"
+              className={`min-h-28 ${fieldClass}`}
             />
           }
         />
       </div>
 
       {status === "success" ? (
-        <div className="mt-5 flex items-center gap-3 rounded-[1.4rem] bg-[rgba(30,142,90,0.12)] px-4 py-4 text-sm text-[#166c44]">
+        <div className="mt-5 flex items-center gap-3 rounded-[1.1rem] border border-[rgba(27,140,87,0.28)] bg-[rgba(30,142,90,0.12)] px-4 py-4 text-sm text-[#166c44]">
           <CheckCircle2 className="h-5 w-5" />
           {statusMessage}
         </div>
       ) : null}
 
       {status === "error" ? (
-        <div className="mt-5 rounded-[1.4rem] bg-[rgba(168,65,48,0.12)] px-4 py-4 text-sm text-[#8f2f22]">
+        <div className="mt-5 rounded-[1.1rem] border border-[rgba(151,53,40,0.28)] bg-[rgba(168,65,48,0.12)] px-4 py-4 text-sm text-[#8f2f22]">
           {statusMessage}
         </div>
       ) : null}
@@ -184,13 +188,9 @@ export function PackageInquiryForm({ pkg }: PackageInquiryFormProps) {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="mt-6 inline-flex items-center gap-2 rounded-full bg-[var(--color-accent)] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[var(--color-accent-strong)] disabled:opacity-80"
+        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-accent)] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[var(--color-accent-strong)] disabled:opacity-80 sm:w-auto"
       >
-        {status === "loading" ? (
-          <LoaderCircle className="h-4 w-4 animate-spin" />
-        ) : (
-          <Send className="h-4 w-4" />
-        )}
+        {status === "loading" ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
         {status === "loading" ? "Saving inquiry..." : "Enquire for this Package"}
       </button>
     </form>
@@ -199,7 +199,7 @@ export function PackageInquiryForm({ pkg }: PackageInquiryFormProps) {
 
 type FieldProps = {
   label: string;
-  input: React.ReactNode;
+  input: ReactNode;
   error?: string;
 };
 
@@ -212,3 +212,4 @@ function Field({ label, input, error }: FieldProps) {
     </label>
   );
 }
+

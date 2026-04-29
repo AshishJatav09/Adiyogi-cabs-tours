@@ -22,12 +22,12 @@ export default async function VipDarshanAssistancePage() {
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-ink)]">
       <Navigation locale={locale} />
       <main>
-        <section className="bg-[linear-gradient(180deg,rgba(255,248,240,0.95),rgba(241,226,205,0.72))]">
-          <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+        <section className="bg-[linear-gradient(180deg,rgba(239,249,253,0.96),rgba(209,233,244,0.74))]">
+          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10">
             <p className="text-sm uppercase tracking-[0.28em] text-[var(--color-accent)]">
               VIP Darshan Assistance
             </p>
-            <h1 className="mt-5 max-w-4xl font-[family-name:var(--font-display)] text-5xl text-[var(--color-ink)] sm:text-6xl">
+            <h1 className="mt-5 max-w-4xl font-[family-name:var(--font-display)] text-4xl leading-tight text-[var(--color-ink)] sm:text-5xl lg:text-6xl">
               Timing-sensitive planning for smoother temple-day movement.
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--color-muted)]">
@@ -35,7 +35,7 @@ export default async function VipDarshanAssistancePage() {
             </p>
           </div>
         </section>
-        <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+        <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10">
           <SectionHeading
             eyebrow="Support Scope"
             title="Helpful when temple timing and crowd movement influence the route."
@@ -69,3 +69,5 @@ export default async function VipDarshanAssistancePage() {
     </div>
   );
 }
+
+
