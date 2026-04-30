@@ -24,12 +24,12 @@ export default async function ReviewsPage() {
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-ink)]">
       <Navigation locale={locale} />
       <main>
-        <section className="bg-[linear-gradient(180deg,rgba(255,248,240,0.96),rgba(241,226,205,0.74))]">
-          <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+        <section className="bg-[linear-gradient(180deg,rgba(239,249,253,0.96),rgba(209,233,244,0.74))]">
+          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10">
             <p className="text-sm uppercase tracking-[0.28em] text-[var(--color-accent)]">
               Review Wall
             </p>
-            <h1 className="mt-5 max-w-4xl font-[family-name:var(--font-display)] text-5xl text-[var(--color-ink)] sm:text-6xl">
+            <h1 className="mt-5 max-w-4xl font-[family-name:var(--font-display)] text-4xl leading-tight text-[var(--color-ink)] sm:text-5xl lg:text-6xl">
               Trust signals shaped around comfort, clarity, and darshan support.
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--color-muted)]">
@@ -55,7 +55,7 @@ export default async function ReviewsPage() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+        <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10">
           <SectionHeading
             eyebrow="Pilgrim Reviews"
             title="Stories that make the brand feel credible before inquiry."
@@ -68,7 +68,7 @@ export default async function ReviewsPage() {
                 className="rounded-[2rem] border border-[var(--color-line)] bg-white p-7 shadow-[var(--shadow-card)]"
               >
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="rounded-full border border-[rgba(161,79,44,0.12)] bg-[rgba(161,79,44,0.06)] px-3 py-1.5 text-xs uppercase tracking-[0.18em] text-[var(--color-accent)]">
+                  <span className="rounded-full border border-[rgba(181,106,47,0.12)] bg-[rgba(181,106,47,0.06)] px-3 py-1.5 text-xs uppercase tracking-[0.18em] text-[var(--color-accent)]">
                     {review.travelerType}
                   </span>
                   <span className="rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] px-3 py-1.5 text-xs uppercase tracking-[0.18em] text-[var(--color-muted)]">
@@ -90,7 +90,7 @@ export default async function ReviewsPage() {
                     <p className="text-sm text-[var(--color-muted)]">{review.city}</p>
                   </div>
                   <p className="text-sm font-semibold text-[var(--color-accent)]">
-                    {"★".repeat(review.rating)}
+                    {"â˜…".repeat(review.rating)}
                   </p>
                 </div>
               </article>
@@ -98,7 +98,7 @@ export default async function ReviewsPage() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-6 pb-20 lg:px-10">
+        <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 sm:pb-20 lg:px-10">
           <div className="grid gap-6 lg:grid-cols-3">
             {[
               ["Route Confidence", "Visitors understand that pickup, darshan order, and return timing can be discussed before the trip starts."],
@@ -136,3 +136,5 @@ export default async function ReviewsPage() {
     </div>
   );
 }
+
+

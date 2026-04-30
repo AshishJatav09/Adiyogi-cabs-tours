@@ -26,12 +26,12 @@ export default async function AboutPage() {
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-ink)]">
       <Navigation locale={locale} />
       <main>
-        <section className="bg-[linear-gradient(180deg,rgba(255,248,240,0.95),rgba(241,226,205,0.72))]">
-          <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+        <section className="bg-[linear-gradient(180deg,rgba(239,249,253,0.96),rgba(209,233,244,0.74))]">
+          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10">
             <p className="text-sm uppercase tracking-[0.28em] text-[var(--color-accent)]">
               {spiritualAccents[0]}
             </p>
-            <h1 className="mt-5 max-w-4xl font-[family-name:var(--font-display)] text-5xl text-[var(--color-ink)] sm:text-6xl">
+            <h1 className="mt-5 max-w-4xl font-[family-name:var(--font-display)] text-4xl leading-tight text-[var(--color-ink)] sm:text-5xl lg:text-6xl">
               A premium spiritual travel brand built around trust, comfort, and devotion.
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--color-muted)]">
@@ -40,14 +40,14 @@ export default async function AboutPage() {
             </p>
           </div>
         </section>
-        <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+        <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10">
           <div className="grid items-start gap-10 lg:grid-cols-[0.95fr_1.05fr]">
             <SectionHeading
               eyebrow="Brand Vision"
               title="Spiritual travel with modern clarity and family-friendly service."
               description="The business vision is to offer complete darshan and travel experiences with clean vehicles, organized routing, optional hotel and meal support, and a premium service tone."
             />
-            <div className="rounded-[2rem] border border-[var(--color-line)] bg-white p-8 shadow-[0_18px_55px_rgba(45,31,18,0.08)]">
+            <div className="rounded-[2rem] border border-[var(--color-line)] bg-white p-8 shadow-[0_18px_55px_rgba(65,39,22,0.08)]">
               <p className="text-base leading-8 text-[var(--color-muted)]">
                 The website is intentionally structured as a conversion-first brand
                 experience. It helps families, devotees, senior citizens, and
@@ -63,7 +63,7 @@ export default async function AboutPage() {
           </div>
         </section>
         <section className="bg-[var(--color-surface)]">
-          <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10">
             <SectionHeading
               eyebrow="Why We Stand Out"
               title="Positioned above the typical local travel website."
@@ -76,7 +76,7 @@ export default async function AboutPage() {
             </div>
           </div>
         </section>
-        <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+        <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10">
           <SectionHeading
             eyebrow="Service Promise"
             title="A practical service model that supports real pilgrimage travel."
@@ -129,4 +129,6 @@ export default async function AboutPage() {
     </div>
   );
 }
+
+
 

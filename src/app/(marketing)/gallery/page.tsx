@@ -57,12 +57,12 @@ export default async function GalleryPage() {
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-ink)]">
       <Navigation locale={locale} />
       <main>
-        <section className="bg-[linear-gradient(180deg,rgba(255,248,240,0.95),rgba(241,226,205,0.72))]">
-          <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+        <section className="bg-[linear-gradient(180deg,rgba(239,249,253,0.96),rgba(209,233,244,0.74))]">
+          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10">
             <p className="text-sm uppercase tracking-[0.28em] text-[var(--color-accent)]">
               {spiritualAccents[2]}
             </p>
-            <h1 className="mt-5 max-w-4xl font-[family-name:var(--font-display)] text-5xl text-[var(--color-ink)] sm:text-6xl">
+            <h1 className="mt-5 max-w-4xl font-[family-name:var(--font-display)] text-4xl leading-tight text-[var(--color-ink)] sm:text-5xl lg:text-6xl">
               Gallery for darshan mood, premium cabs, and heritage travel moments.
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--color-muted)]">
@@ -71,7 +71,7 @@ export default async function GalleryPage() {
             </p>
           </div>
         </section>
-        <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+        <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10">
           <SectionHeading
             eyebrow="Visual Experience"
             title="A future-ready gallery space for travel proof, emotion, and trust."
@@ -81,7 +81,7 @@ export default async function GalleryPage() {
             <GalleryBrowser items={galleryItems} />
           </div>
         </section>
-        <section className="mx-auto max-w-7xl px-6 pb-20 lg:px-10">
+        <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 sm:pb-20 lg:px-10">
           <SectionHeading
             eyebrow="Our Fleet"
             title="Vehicle options for every route, family size, and comfort need."
@@ -94,7 +94,13 @@ export default async function GalleryPage() {
                 className="overflow-hidden rounded-[2rem] border border-[var(--color-line)] bg-white shadow-[0_18px_48px_rgba(32,22,14,0.12)]"
               >
                 <div className="relative h-64">
-                  <Image src={item.image} alt={item.name} fill className="object-cover" />
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    className="object-cover"
+                  />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,11,9,0.02),rgba(13,11,9,0.18))]" />
                 </div>
                 <div className="p-6">
@@ -116,4 +122,6 @@ export default async function GalleryPage() {
     </div>
   );
 }
+
+
 

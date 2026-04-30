@@ -29,14 +29,14 @@ export function ListingPage(props: ListingPageProps) {
       <Navigation locale={locale} />
 
       <main>
-        <section className="bg-[linear-gradient(180deg,rgba(255,248,240,0.95),rgba(241,226,205,0.72))]">
-          <div className="mx-auto max-w-7xl px-6 py-18 lg:px-10">
-            <p className="text-sm uppercase tracking-[0.28em] text-[var(--color-accent)]">
+        <section className="bg-[linear-gradient(180deg,rgba(239,249,253,0.96),rgba(209,233,244,0.74))]">
+          <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-18 lg:px-10">
+            <p className="inline-flex rounded-full border border-[rgba(181,106,47,0.2)] bg-[rgba(181,106,47,0.08)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
               {isPackages
                 ? localize(locale, "Packages", "Packages")
                 : localize(locale, "Destinations", "Destinations")}
             </p>
-            <h1 className="mt-5 max-w-4xl font-[family-name:var(--font-display)] text-5xl leading-tight text-[var(--color-ink)] sm:text-6xl">
+            <h1 className="mt-5 max-w-4xl text-4xl font-semibold leading-tight text-[var(--color-ink)] sm:text-5xl lg:text-6xl">
               {isPackages
                 ? "Package-led travel plans for pilgrimage, heritage, and custom yatras."
                 : "Temple, heritage, and gateway destinations that shape the full travel ecosystem."}
@@ -49,7 +49,7 @@ export function ListingPage(props: ListingPageProps) {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+        <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-10">
           <SectionHeading
             eyebrow={isPackages ? "All Packages" : "Destination Guides"}
             title={
@@ -84,3 +84,4 @@ export function ListingPage(props: ListingPageProps) {
     </div>
   );
 }
+
