@@ -3,12 +3,12 @@ import type { GalleryItem } from "@/shared/types/site";
 export const galleryItems: GalleryItem[] = [
   {
     id: "gallery-1",
-    title: "Mahakal arrival mornings",
+    title: "Mahakal darshan mornings",
     category: "Darshan Moments",
     description:
-      "Early departures and calm temple-bound movement for families and devotees.",
+      "A more intimate Mahakal-focused visual for early darshan energy and devotional calm.",
     gradient: "bg-[linear-gradient(160deg,#6c2f20,#b6673e)]",
-    image: "/images/destinations/ujjain-mahakal.jpg",
+    image: "/images/gallery/customer-journey-mahakal.jpg",
   },
   {
     id: "gallery-2",
@@ -39,12 +39,12 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "gallery-5",
-    title: "Family-focused temple stopovers",
+    title: "Temple arrival and family support",
     category: "Customer Journeys",
     description:
-      "A pacing style that helps parents, elders, and children travel more easily.",
+      "Arrival coordination and calmer temple-day movement for families, elders, and mixed-age groups.",
     gradient: "bg-[linear-gradient(160deg,#5a3a21,#b18957)]",
-    image: "/images/gallery/customer-journey-mahakal.jpg",
+    image: "/images/destinations/ujjain-mahakal.jpg",
   },
   {
     id: "gallery-6",

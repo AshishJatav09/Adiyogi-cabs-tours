@@ -15,7 +15,7 @@ import { getCurrentLocale } from "@/shared/i18n/server";
 export const metadata: Metadata = createMetadata({
   title: "About Us",
   description:
-    "Learn about the premium spiritual travel vision, family-safe service values, and future-ready approach behind Adiyogi Tours.",
+    "Learn about the premium spiritual travel vision, family-safe service values, and future-ready approach behind Adiyogi Cabs & Tours.",
   path: "/about",
 });
 
@@ -35,7 +35,7 @@ export default async function AboutPage() {
               A premium spiritual travel brand built around trust, comfort, and devotion.
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--color-muted)]">
-              Adiyogi Tours is designed to feel more like a guided travel
+              Adiyogi Cabs & Tours is designed to feel more like a guided travel
               partner for darshan and heritage movement than a simple taxi listing.
             </p>
           </div>
@@ -80,7 +80,7 @@ export default async function AboutPage() {
           <SectionHeading
             eyebrow="Service Promise"
             title="A practical service model that supports real pilgrimage travel."
-            description="These are the service pillars that make Adiyogi Tours future-ready for deeper package, blog, admin, and booking expansion."
+            description="These are the service pillars that make Adiyogi Cabs & Tours future-ready for deeper package, blog, admin, and booking expansion."
           />
           <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {serviceFeatures.map((feature) => (
@@ -119,7 +119,7 @@ export default async function AboutPage() {
         </section>
         <CTASection
           eyebrow="Plan With Confidence"
-          title="Speak with Adiyogi Tours for your next darshan route."
+          title="Speak with Adiyogi Cabs & Tours for your next darshan route."
           description="Use WhatsApp to discuss package options, custom plans, family support, stay requirements, and arrival details."
         />
       </main>

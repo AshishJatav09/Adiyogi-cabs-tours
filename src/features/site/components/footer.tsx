@@ -18,7 +18,7 @@ export function Footer({ locale }: FooterProps) {
             {localize(locale, "Shubha Yatra", "Shubha Yatra")}
           </p>
           <h3 className="mt-4 font-[family-name:var(--font-display)] text-3xl text-[var(--color-ink)]">
-            Adiyogi Tours
+            Adiyogi Cabs & Tours
           </h3>
           <p className="mt-4 max-w-xl text-base leading-8 text-[var(--color-muted)]">
             {localize(

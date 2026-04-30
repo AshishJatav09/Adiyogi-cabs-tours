@@ -56,7 +56,7 @@ export default async function FestivalPackagePage({
   }
 
   const enquiryLink = buildWhatsAppLink(
-    `Namaste Adiyogi Tours, I want details for the festival route: ${item.title}.`,
+    `Namaste Adiyogi Cabs & Tours, I want details for the festival route: ${item.title}.`,
   );
 
   return (

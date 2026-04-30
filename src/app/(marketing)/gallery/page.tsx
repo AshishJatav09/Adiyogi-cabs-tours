@@ -14,7 +14,7 @@ import { getCurrentLocale } from "@/shared/i18n/server";
 export const metadata: Metadata = createMetadata({
   title: "Gallery",
   description:
-    "Browse darshan moments, premium cabs, heritage routes, hotel placeholders, and customer journey visuals from Adiyogi Tours.",
+    "Browse darshan moments, premium cabs, heritage routes, hotel placeholders, and customer journey visuals from Adiyogi Cabs & Tours.",
   path: "/gallery",
 });
 

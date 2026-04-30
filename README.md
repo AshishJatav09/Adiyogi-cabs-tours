@@ -1,4 +1,4 @@
-# Adiyogi Tours
+# Adiyogi Cabs & Tours
 
 Next.js 16 marketing website for spiritual travel packages, destination pages, guides, gallery, and contact inquiries.
 

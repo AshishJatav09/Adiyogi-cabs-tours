@@ -50,7 +50,7 @@ export default async function PujaDetailPage({ params }: PujaDetailPageProps) {
   }
 
   const enquiryLink = buildWhatsAppLink(
-    `Namaste Adiyogi Tours, I want details for ${service.title}.`,
+    `Namaste Adiyogi Cabs & Tours, I want details for ${service.title}.`,
   );
 
   return (
